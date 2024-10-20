@@ -12,7 +12,7 @@
 
 int main(int argc, char** argv) {
 	
-	// Nosso código aqui...
-	
+	std::cout << "Começando";
+
 	return 0;
 }
