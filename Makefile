@@ -5,9 +5,9 @@ BUILD_DIR = build
 CXX = g++
 
 # Flags de compilação
-CXXFLAGS = -g -Wall
+CXXFLAGS = -g -Wall -Iinclude
 
-# Arquivo principal de entrada
+# Arquivos fonte
 SRC = src/main.cpp
 
 # Nome do executável
@@ -17,9 +17,13 @@ TARGET = $(BUILD_DIR)/main.exe
 $(BUILD_DIR):
 	mkdir -p $(BUILD_DIR)
 
-# Regra de compilação
-$(TARGET): $(SRC) | $(BUILD_DIR)
-	$(CXX) $(CXXFLAGS) $(SRC) -o $(TARGET)
+# Regra de compilação para arquivos objeto
+$(BUILD_DIR)/%.o: src/%.cpp | $(BUILD_DIR)
+	$(CXX) $(CXXFLAGS) -c $< -o $@
+
+# Regra de compilação do executável
+$(TARGET): $(BUILD_DIR)/main.o
+	$(CXX) $(CXXFLAGS) -o $@ $(BUILD_DIR)/main.o
 
 # Limpeza dos arquivos gerados
 clean:
