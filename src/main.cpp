@@ -4,13 +4,11 @@
 #include <windows.h>
 
 /*
-
-	+-------------+
-	|    Autores  |
-	+-------------+
-	@Kawan
-	@Luiz
-
+	+--------------+
+	|    Autores   |  
+	+--------------+
+	@Kawan 
+	@Luiz  
 */
 
 void greeting()
